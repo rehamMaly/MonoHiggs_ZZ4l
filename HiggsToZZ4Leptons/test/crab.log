@@ -1,0 +1,322 @@
+DEBUG 2018-10-06 18:48:00,767: 	 Executing command: 'submit'
+DEBUG 2018-10-06 18:48:00,769: 	 Found CRAB cache file /lustre/home/reham/.crab3
+DEBUG 2018-10-06 18:48:00,781: 	 Checking credentials
+DEBUG 2018-10-06 18:48:00,782: 	 Found proxy file /tmp/x509up_u50897
+DEBUG 2018-10-06 18:48:00,782: 	 Getting proxy life time left
+DEBUG 2018-10-06 18:48:01,388: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -timeleft
+ output : 43154
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-06 18:48:01,995: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -actimeleft
+ output : 43153
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-06 18:48:01,996: 	 Proxy valid for 11:59:14 hours
+INFO 2018-10-06 18:48:01,996: 	 Will use CRAB configuration file crab_mc.py
+DEBUG 2018-10-06 18:48:01,996: 	 Loading CRAB configuration file.
+DEBUG 2018-10-06 18:48:02,000: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2018-10-06 18:48:02,000: 	 Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Moriond17/crab_processed' already exists 
+Please change the requestName in the config file
+ERROR 2018-10-06 18:48:02,001: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 307, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/ClientUtilities.py", line 404, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Moriond17/crab_processed' already exists 
+Please change the requestName in the config file
+DEBUG 2018-10-07 14:33:22,382: 	 Executing command: 'submit'
+DEBUG 2018-10-07 14:33:22,382: 	 Found CRAB cache file /lustre/home/reham/.crab3
+DEBUG 2018-10-07 14:33:22,396: 	 Checking credentials
+DEBUG 2018-10-07 14:33:22,397: 	 Found proxy file /tmp/x509up_u50897
+DEBUG 2018-10-07 14:33:22,397: 	 Getting proxy life time left
+DEBUG 2018-10-07 14:33:23,003: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -timeleft
+ output : 0
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 14:33:23,004: 	 Proxy valid for 00:00:00 hours
+DEBUG 2018-10-07 14:33:23,004: 	 Creating new proxy for 24:00 hours with VO group '' and VO role 'NULL'.
+DEBUG 2018-10-07 14:33:23,710: 	 Executing : 
+ command : voms-proxy-init -voms cms:/cms -valid 24:00 -rfc
+ output : None
+ error: None
+ retcode : 1
+DEBUG 2018-10-07 14:33:24,317: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -timeleft
+ output : 0
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 14:33:24,925: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u50897 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+ERROR 2018-10-07 14:33:24,925: 	 Problems creating proxy.
+ERROR 2018-10-07 14:33:24,926: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 297, in __init__
+    self.proxyCreated = self.proxy.createNewVomsProxySimple(timeLeftThreshold = 720)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/CredentialInteractions.py", line 152, in createNewVomsProxySimple
+    raise ProxyCreationException("Problems creating proxy.")
+ProxyCreationException: Problems creating proxy.
+DEBUG 2018-10-07 14:33:31,671: 	 Executing command: 'submit'
+DEBUG 2018-10-07 14:33:31,671: 	 Found CRAB cache file /lustre/home/reham/.crab3
+DEBUG 2018-10-07 14:33:31,681: 	 Checking credentials
+DEBUG 2018-10-07 14:33:31,681: 	 Found proxy file /tmp/x509up_u50897
+DEBUG 2018-10-07 14:33:31,681: 	 Getting proxy life time left
+DEBUG 2018-10-07 14:33:32,287: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -timeleft
+ output : 0
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 14:33:32,287: 	 Proxy valid for 00:00:00 hours
+DEBUG 2018-10-07 14:33:32,287: 	 Creating new proxy for 24:00 hours with VO group '' and VO role 'NULL'.
+DEBUG 2018-10-07 14:33:41,809: 	 Executing : 
+ command : voms-proxy-init -voms cms:/cms -valid 24:00 -rfc
+ output : None
+ error: None
+ retcode : 0
+DEBUG 2018-10-07 14:33:42,416: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -timeleft
+ output : 86398
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 14:33:43,023: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -actimeleft
+ output : 86398
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 14:33:43,630: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u50897 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 14:33:43,630: 	 Proxy created.
+INFO 2018-10-07 14:33:43,631: 	 Will use CRAB configuration file crab_mc.py
+DEBUG 2018-10-07 14:33:43,631: 	 Loading CRAB configuration file.
+DEBUG 2018-10-07 14:33:43,634: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2018-10-07 14:33:43,636: 	 Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Moriond17/crab_processed' already exists 
+Please change the requestName in the config file
+ERROR 2018-10-07 14:33:43,636: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 307, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/ClientUtilities.py", line 404, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Moriond17/crab_processed' already exists 
+Please change the requestName in the config file
+DEBUG 2018-10-07 15:05:44,755: 	 Executing command: 'submit'
+DEBUG 2018-10-07 15:05:44,756: 	 Found CRAB cache file /lustre/home/reham/.crab3
+DEBUG 2018-10-07 15:05:44,767: 	 Checking credentials
+DEBUG 2018-10-07 15:05:44,768: 	 Found proxy file /tmp/x509up_u50897
+DEBUG 2018-10-07 15:05:44,768: 	 Getting proxy life time left
+DEBUG 2018-10-07 15:05:45,374: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -timeleft
+ output : 84475
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 15:05:45,981: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -actimeleft
+ output : 84475
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 15:05:45,981: 	 Proxy valid for 23:27:55 hours
+INFO 2018-10-07 15:05:45,983: 	 Will use CRAB configuration file crab_mc.py
+DEBUG 2018-10-07 15:05:45,983: 	 Loading CRAB configuration file.
+DEBUG 2018-10-07 15:05:45,988: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2018-10-07 15:05:45,996: 	 Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Moriond17/crab_processed' already exists 
+Please change the requestName in the config file
+ERROR 2018-10-07 15:05:45,997: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 307, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/ClientUtilities.py", line 404, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Moriond17/crab_processed' already exists 
+Please change the requestName in the config file
+DEBUG 2018-10-07 15:09:28,067: 	 Executing command: 'submit'
+DEBUG 2018-10-07 15:09:28,069: 	 Found CRAB cache file /lustre/home/reham/.crab3
+DEBUG 2018-10-07 15:09:28,080: 	 Checking credentials
+DEBUG 2018-10-07 15:09:28,080: 	 Found proxy file /tmp/x509up_u50897
+DEBUG 2018-10-07 15:09:28,080: 	 Getting proxy life time left
+DEBUG 2018-10-07 15:09:28,687: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -timeleft
+ output : 84252
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 15:09:29,195: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -actimeleft
+ output : 84251
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 15:09:29,196: 	 Proxy valid for 23:24:12 hours
+INFO 2018-10-07 15:09:29,197: 	 Will use CRAB configuration file crab_mc.py
+DEBUG 2018-10-07 15:09:29,197: 	 Loading CRAB configuration file.
+DEBUG 2018-10-07 15:09:29,202: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2018-10-07 15:09:29,203: 	 Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Moriond17/crab_processed' already exists 
+Please change the requestName in the config file
+ERROR 2018-10-07 15:09:29,203: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 307, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/ClientUtilities.py", line 404, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Moriond17/crab_processed' already exists 
+Please change the requestName in the config file
+DEBUG 2018-10-07 15:22:18,378: 	 Executing command: 'submit'
+DEBUG 2018-10-07 15:22:18,380: 	 Found CRAB cache file /lustre/home/reham/.crab3
+DEBUG 2018-10-07 15:22:18,392: 	 Checking credentials
+DEBUG 2018-10-07 15:22:18,392: 	 Found proxy file /tmp/x509up_u50897
+DEBUG 2018-10-07 15:22:18,392: 	 Getting proxy life time left
+DEBUG 2018-10-07 15:22:18,998: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -timeleft
+ output : 83482
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 15:22:19,606: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -actimeleft
+ output : 83481
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-07 15:22:19,606: 	 Proxy valid for 23:11:22 hours
+INFO 2018-10-07 15:22:19,608: 	 Will use CRAB configuration file crab_mc.py
+DEBUG 2018-10-07 15:22:19,608: 	 Loading CRAB configuration file.
+DEBUG 2018-10-07 15:22:19,612: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2018-10-07 15:22:19,615: 	 Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Moriond17/crab_processed' already exists 
+Please change the requestName in the config file
+ERROR 2018-10-07 15:22:19,615: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 307, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/ClientUtilities.py", line 404, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Moriond17/crab_processed' already exists 
+Please change the requestName in the config file
+DEBUG 2018-10-08 12:16:52,723: 	 Executing command: 'submit'
+DEBUG 2018-10-08 12:16:52,725: 	 Found CRAB cache file /lustre/home/reham/.crab3
+DEBUG 2018-10-08 12:16:52,732: 	 Checking credentials
+DEBUG 2018-10-08 12:16:52,733: 	 Found proxy file /tmp/x509up_u50897
+DEBUG 2018-10-08 12:16:52,733: 	 Getting proxy life time left
+DEBUG 2018-10-08 12:16:53,437: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -timeleft
+ output : 43189
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-08 12:16:53,943: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -actimeleft
+ output : 43189
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-08 12:16:53,943: 	 Proxy valid for 11:59:49 hours
+INFO 2018-10-08 12:16:53,944: 	 Will use CRAB configuration file crab_mc.py
+DEBUG 2018-10-08 12:16:53,944: 	 Loading CRAB configuration file.
+DEBUG 2018-10-08 12:16:53,946: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2018-10-08 12:16:53,962: 	 Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Fall17/crab_processed' already exists 
+Please change the requestName in the config file
+ERROR 2018-10-08 12:16:53,963: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 307, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/ClientUtilities.py", line 404, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Fall17/crab_processed' already exists 
+Please change the requestName in the config file
+DEBUG 2018-10-08 15:10:55,288: 	 Executing command: 'submit'
+DEBUG 2018-10-08 15:10:55,289: 	 Found CRAB cache file /lustre/home/reham/.crab3
+DEBUG 2018-10-08 15:10:55,296: 	 Checking credentials
+DEBUG 2018-10-08 15:10:55,296: 	 Found proxy file /tmp/x509up_u50897
+DEBUG 2018-10-08 15:10:55,296: 	 Getting proxy life time left
+DEBUG 2018-10-08 15:10:55,800: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -timeleft
+ output : 41249
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-08 15:10:56,407: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u50897 -actimeleft
+ output : 41248
+
+ error: 
+ retcode : 0
+DEBUG 2018-10-08 15:10:56,407: 	 Proxy valid for 11:27:29 hours
+INFO 2018-10-08 15:10:56,409: 	 Will use CRAB configuration file crab_mc.py
+DEBUG 2018-10-08 15:10:56,409: 	 Loading CRAB configuration file.
+DEBUG 2018-10-08 15:10:56,414: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2018-10-08 15:10:56,417: 	 Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Fall17/crab_processed' already exists 
+Please change the requestName in the config file
+ERROR 2018-10-08 15:10:56,417: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 307, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1809-comp/lib/python2.7/site-packages/CRABClient/ClientUtilities.py", line 404, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Fall17/crab_processed' already exists 
+Please change the requestName in the config file

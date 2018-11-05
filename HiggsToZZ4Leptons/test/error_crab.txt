@@ -1,0 +1,9 @@
+Will use CRAB configuration file crab_mc.py
+Importing CMSSW configuration HiggsTozz_MiniAOD_mc.py
+Finished importing CMSSW configuration HiggsTozz_MiniAOD_mc.py
+Sending the request to the server
+The server answered with an error.
+Server answered with: Invalid input parameter
+Reason is: The parameter Data.outLFNDirBase in the CRAB configuration file must start with either '/store/user/<username>/' or '/store/group/<groupname>/' (or '/store/local/<something>/' if publication is off...
+Error Id: 25dff7f681c81523f033520e2b29c672
+Log file is /lustre/home/reham/TEST/CMSSW_9_4_9_cand2/src/HiggsAnalysis/HiggsToZZ4Leptons/test/Fall17/crab_processed/crab.log

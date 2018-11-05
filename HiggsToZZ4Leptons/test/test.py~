@@ -1,0 +1,43 @@
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('MonoHiggs')
+
+# Complete Preselection Sequence for 4l analysis
+
+process.load('Configuration/StandardSequences/Services_cff')
+process.load('FWCore/MessageService/MessageLogger_cfi')
+
+# import of standard configurations
+process.load('Configuration/StandardSequences/Services_cff')
+process.load('FWCore/MessageService/MessageLogger_cfi')
+process.load('Configuration/Geometry/GeometryRecoDB_cff')
+#process.load('Configuration.StandardSequences.MagneticField_38T_PostLS1_cff')#reham
+process.load('Configuration.StandardSequences.MagneticField_cff') #reham
+process.load('Configuration/StandardSequences/EndOfProcess_cff')
+process.load('Configuration/StandardSequences/FrontierConditions_GlobalTag_condDBv2_cff')
+process.load('Configuration/EventContent/EventContent_cff')
+
+
+from Configuration.AlCa.GlobalTag_condDBv2 import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, '94X_dataRun2_v6', '') # Reham Tag recommended for JEC 2017
+
+##update MET after update jet 
+
+from PhysicsTools.PatUtils.tools.runMETCorrectionsAndUncertainties import runMetCorAndUncFromMiniAOD
+
+runMetCorAndUncFromMiniAOD(process,
+                           isData=True, #(or False),
+                           )
+
+#/////////////////////////////////////////////////////
+
+process.maxEvents = cms.untracked.PSet(input = cms.untracked.int32(100))
+process.options = cms.untracked.PSet(wantSummary = cms.untracked.bool(True))
+
+process.source = cms.Source ("PoolSource",
+                             
+  fileNames = cms.untracked.vstring(
+'file:data_DoubleMuon_2017_RunB_0852E0CB-E7D7-E711-B2DA-0025905C3DCE.root' 
+  )
+)
+
