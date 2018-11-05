@@ -83,8 +83,8 @@ process.goodOfflinePrimaryVerticestwo = cms.EDFilter("VertexSelector",
         
 
 
-process.load('HiggsAnalysis/HiggsToZZ4Leptons/hTozzTo4leptonsMuonCalibrator_cfi')
-process.hTozzTo4leptonsMuonCalibrator.isData = cms.bool(True) 
+#@#process.load('HiggsAnalysis/HiggsToZZ4Leptons/hTozzTo4leptonsMuonCalibrator_cfi')
+#@#process.hTozzTo4leptonsMuonCalibrator.isData = cms.bool(True) 
 # process.hTozzTo4leptonsMuonCalibrator.isMC = cms.bool(False)
 
 
@@ -93,23 +93,6 @@ process.hTozzTo4leptonsMuonCalibrator.isData = cms.bool(True)
 
 #/////////////////////////////////////////////////////////////
 #Reham test JEC
-
-#process.load("CondCore.CondDB.CondDB_cfi")
-#process.jec = cms.ESSource("PoolDBESSource",
-#                                        DBParameters = cms.PSet(messageLevel = cms.untracked.int32(1)),
-#                                        timetype = cms.string('runnumber'),
-#                                        toGet = cms.VPSet(
-#                                          cms.PSet(
-#                                             record = cms.string('JetCorrectionsRecord'),
-#                                             tag    = cms.string('JetCorrectorParametersCollection_Fall17_17Nov2017BCDEF_V6_DATA_AK4PFchs'),
-#                                             label  = cms.untracked.string('AK4PFchs')
-#                                             ),
-#                                          ),
-#                                          connect = cms.string('sqlite:Fall17_17Nov2017BCDEF_V6_DATA.db')
-#)
-
-#process.es_prefer_jec = cms.ESPrefer('PoolDBESSource', 'jec')
-
 
 from PhysicsTools.PatAlgos.tools.jetTools import updateJetCollection
 
@@ -124,34 +107,8 @@ jetCorrections = ('AK4PFchs', cms.vstring(['L1FastJet', 'L2Relative', 'L3Absolut
 
 process.jecSequence = cms.Sequence(process.patJetCorrFactorsUpdatedJEC * process.updatedPatJetsUpdatedJEC)
 
+#///////////////////////////////////////////////////////////
 
-#////////////////////////////////
-##REham
-##PileUP JET ID
-
-#process.load("RecoJets.JetProducers.PileupJetID_cfi")
-#process.pileupJetIdUpdated = process.pileupJetId.clone(
-#  jets=cms.InputTag("slimmedJets"),
-#  inputIsCorrected=True,
-#  applyJec=True,
-#  vertexes=cms.InputTag("offlineSlimmedPrimaryVertices")
-#  )
-
-##print process.pileupJetId.dumpConfig()
-
-#process.load("PhysicsTools.PatAlgos.producersLayer1.jetUpdater_cff")
-#process.patJetCorrFactorsReapplyJEC = process.updatedPatJetCorrFactors.clone(
-#  src = cms.InputTag("slimmedJets"),
-#  levels = ['L1FastJet', 'L2Relative', 'L3Absolute', 'L2L3Residual'] )
-#process.updatedJets = process.updatedPatJets.clone(
-#  jetSource = cms.InputTag("slimmedJets"),
-#  jetCorrFactorsSource = cms.VInputTag(cms.InputTag("patJetCorrFactorsReapplyJEC"))
-#  )
-#process.updatedJets.userData.userInts.src += ['pileupJetIdUpdated:fullId']
-#process.updatedJets.userData.userFloats.src += ['pileupJetIdUpdated:fullDiscriminant']
-
-
-#///////////////////////////////////////////////////////
 #Reham to update the MET after updating the JEC
 
 #from PhysicsTools.PatUtils.tools.runMETCorrectionsAndUncertainties import runMetCorAndUncFromMiniAOD
@@ -165,20 +122,28 @@ process.jecSequence = cms.Sequence(process.patJetCorrFactorsUpdatedJEC * process
 #                           postfix="TEST"
 #                           )
 
-#////////////////////////////
 
-#update MET after update jet 
+#update MET after update JEC 
 
-#from PhysicsTools.PatUtils.tools.runMETCorrectionsAndUncertainties import runMetCorAndUncFromMiniAOD
+from PhysicsTools.PatUtils.tools.runMETCorrectionsAndUncertainties import runMetCorAndUncFromMiniAOD
 
-#runMetCorAndUncFromMiniAOD(process,
-#                           isData=True, #(or False),
-#                           )
+runMetCorAndUncFromMiniAOD(process,
+                           isData=True, #(or False),
+                           postfix = "TEST"
+                           )
+
+#/////////////////////////////////////////////////////
+#Reham to add new instructiond for electron energy correction and smearing 
+
+from RecoEgamma.EgammaTools.EgammaPostRecoTools import setupEgammaPostRecoSeq
+setupEgammaPostRecoSeq(process,
+                       runVID=False, #saves CPU time by not needlessly re-running VID
+                       era='2017-Nov17ReReco') 
 
 #/////////////////////////////////////////////////////
 
 process.load('HiggsAnalysis/HiggsToZZ4Leptons/hTozzTo4leptonsPreselection_data_noskim_cff') 
-process.calibratedPatElectrons.isMC = cms.bool(False) #reham run2 2017
+#@#process.calibratedPatElectrons.isMC = cms.bool(False) #reham run2 2017
 
 
 process.hTozzTo4leptonsPFfsrPhoton.src = cms.InputTag("packedPFCandidates")
@@ -210,14 +175,9 @@ process.hTozzTo4leptonsSelectionPath = cms.Path(
   process.goodOfflinePrimaryVerticestwo     *
 #  process.genanalysis * 
   process.jecSequence *#Reham to add JEC
- # process.fullPatMetSequenceTEST * #Reham To update MET after update JEC
- # process.testCands *
- # process.fullPatMetSequence * #Reham To update MET after update JEC
+  process.fullPatMetSequenceTEST * #Reham To update MET after update JEC
+ process.egammaPostRecoSeq * #Reham to include electron smearing due to kink at 50 Gev in electron pt spectrum from old electron scale and smearing
   process.hTozzTo4leptonsSelectionSequenceData *# Reham to add again
-  #process.pileupJetIdUpdated * #REham to add puileup jet ID
-  #process.patJetCorrFactorsReapplyJEC * #Reham to add JEC for PileUP
-  #process.updatedJets * #Reham to add JEC for PileUP
-#  process.hTozzTo4leptonsMatchingSequence *
   process.hTozzTo4leptonsCommonRootTreePresel 
   )
 
