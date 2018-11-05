@@ -41,6 +41,9 @@ https://twiki.cern.ch/twiki/pub/CMS/RochcorMuon/roccor.Run2.v2.tgz
 
 // For HiggsAnalysis 
 
+git clone https://github.com/rehamMaly/MonoHiggs_ZZ4l.git
+
+cd CMSSW_9_4_9_cand2/src
 
 scramv1 b -j 8 
 
