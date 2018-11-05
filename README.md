@@ -15,9 +15,6 @@ cmsenv
  git cms-merge-topic guitargeek:ElectronID_MVA2017_V2_HZZ_940pre3
  
  
- git clone -b ElectronID_MVA2017_V2 https://github.com/guitargeek/RecoEgamma-ElectronIdentification RecoEgamma/ElectronIdentification/data/
- 
- 
  rm -rf RecoEgamma/ElectronIdentification/data
  
  
